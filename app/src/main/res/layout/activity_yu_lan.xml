@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.apple.picturepickerdemo.activity.YuLanActivity">
+
+    <com.example.apple.picturepickerdemo.view.HackyViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black_dark_bg">
+
+    </com.example.apple.picturepickerdemo.view.HackyViewPager>
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black_bg">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/back"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_back"
+            android:background="@color/black_xi_xian"/>
+
+        <TextView
+            android:id="@+id/tv_yu_lan_index"
+
+            android:layout_width="wrap_content"
+
+
+            android:layout_height="match_parent"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@+id/iv_back"
+            android:gravity="center"
+            android:text="1/9"
+            android:textColor="#fff"
+            android:textSize="17sp"/>
+
+        <Button
+            android:id="@+id/bt_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bt_bg"
+            android:enabled="false"
+            android:text="完  成"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_bottomed"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="bottom"
+        android:background="@color/black_translate_dark">
+
+        <HorizontalScrollView
+            android:id="@+id/suo_lv_tu_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scrollbars="none"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_suo_lv_tu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <View
+            android:id="@+id/xi_xian"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/suo_lv_tu_scrollView"
+            android:background="@color/black_xi_xian"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_below="@+id/xi_xian"
+            android:background="@color/black_translate_dark">
+<RelativeLayout
+    android:id="@+id/rl_select"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/cb_select"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/tv_select"
+        android:background="@drawable/checkbox_bg"
+        android:button="@null"
+        android:textColor="@color/enable_text_color"
+        android:textDirection="ltr"
+        android:textSize="17sp"/>
+
+    <TextView
+
+        android:id="@+id/tv_select"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="选择"
+        android:textColor="@color/enable_text_color"
+        android:textSize="17sp"/>
+
+</RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</FrameLayout>

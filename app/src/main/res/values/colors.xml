@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black_bg">#393a3f</color>
+    <color name="black_dark_bg">#000</color>
+    <color name="black_xi_xian">#262525</color>
+    <color name="bt_weichat_default_bg">#26ab28</color>
+    <color name="bt_weichat_selected_bg">#229923</color>
+    <color name="bt_weichat_cant_click_bg">#2e6732</color>
+    <color name="selected_text_color">#b4b3b3</color>
+    <color name="enable_text_color">#fff</color>
+    <color name="unenable_text_color">#6f7073</color>
+    <color name="black_translate_dark">#98393a3f</color>
+    <color name="black_translate">#33000000</color>
+    <color name="translate">#00000000</color>
+</resources>

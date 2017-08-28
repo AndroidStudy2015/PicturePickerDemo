@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="80dp"
+              android:layout_height="80dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+              >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:id="@+id/delete_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/delete_yu_lan"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:id="@+id/force_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selected_yu_lan"
+        />
+
+
+</FrameLayout>
