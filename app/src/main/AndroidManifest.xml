@@ -29,7 +29,10 @@
             android:name=".activity.YuLanActivity"
             android:theme="@style/Theme.AppCompat.FullScrennNoActionBar">
         </activity>
-
+        <activity
+            android:name=".activity.YuLanAllActivity"
+            android:theme="@style/Theme.AppCompat.FullScrennNoActionBar">
+        </activity>
 
 
     </application>

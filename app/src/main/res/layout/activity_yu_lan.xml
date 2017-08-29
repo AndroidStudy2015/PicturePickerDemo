@@ -69,7 +69,7 @@
     <RelativeLayout
         android:id="@+id/rl_bottomed"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/black_translate_dark">
 
@@ -85,8 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
 
             </LinearLayout>
@@ -108,38 +108,39 @@
             android:layout_height="50dp"
             android:layout_below="@+id/xi_xian"
             android:background="@color/black_translate_dark">
-<RelativeLayout
-    android:id="@+id/rl_select"
-    android:layout_centerVertical="true"
-    android:layout_alignParentRight="true"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content">
 
-    <CheckBox
-        android:id="@+id/cb_select"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
-        android:layout_toLeftOf="@+id/tv_select"
-        android:background="@drawable/checkbox_bg"
-        android:button="@null"
-        android:textColor="@color/enable_text_color"
-        android:textDirection="ltr"
-        android:textSize="17sp"/>
+            <RelativeLayout
+                android:id="@+id/rl_select"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
 
-    <TextView
+                <CheckBox
+                    android:id="@+id/cb_select"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@+id/tv_select"
+                    android:background="@drawable/checkbox_bg"
+                    android:button="@null"
+                    android:textColor="@color/enable_text_color"
+                    android:textDirection="ltr"
+                    android:textSize="17sp"/>
 
-        android:id="@+id/tv_select"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="选择"
-        android:textColor="@color/enable_text_color"
-        android:textSize="17sp"/>
+                <TextView
 
-</RelativeLayout>
+                    android:id="@+id/tv_select"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="选择"
+                    android:textColor="@color/enable_text_color"
+                    android:textSize="17sp"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

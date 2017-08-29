@@ -34,7 +34,7 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
 
     public static final int RESULT_CODE_SELECTED_PATH_LIST_YU_LAN = 11;
     private ArrayList<String> mYuLanLists;
-    private ArrayList<String> mTempYuLanLists;
+    private ArrayList<String> mSencondShaiXuanYuLanLists;
     private HackyViewPager mViewPager;
     private TextView mTvYuLanIndex;
     private Button mBtFinish;
@@ -58,6 +58,17 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
     private int lastPositon;
     private RelativeLayout mRlSelect;
 
+
+    /**
+     * 这个Activity是用来预览所有选中的照片集合
+     *
+     *
+     * 因为这个Activity下方的横向ScrollView要显示进来这个Activity时候的选中集合
+     * 和在本Activity里又再次筛选后的选中集合，所以一进来就复制了一个mSencondShanXuanYuLanLists
+     * mYuLanLists用来记录从外界传递来的第一次选中集合
+     * mSencondShanXuanYuLanLists用来记录第二次筛选后的记录，注意这个集合是关闭本Activity后向外传递的数据
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,8 +146,8 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
 
     private void initData() {
         mYuLanLists = getIntent().getStringArrayListExtra("yuLanList");
-        mTempYuLanLists = new ArrayList<>();
-        mTempYuLanLists.addAll(mYuLanLists);
+        mSencondShaiXuanYuLanLists = new ArrayList<>();
+        mSencondShaiXuanYuLanLists.addAll(mYuLanLists);
     }
 
     private void setAdapater() {
@@ -215,7 +226,7 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
         final View delete_view = ((ViewGroup) (mSuoLvTuLinearLayout.getChildAt(position))).getChildAt(1);
 
 //        显示
-        if (mTempYuLanLists.contains(mYuLanLists.get(position))) {
+        if (mSencondShaiXuanYuLanLists.contains(mYuLanLists.get(position))) {
             mCbSelect.setChecked(true);
 
         } else {
@@ -228,21 +239,21 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
                 if (!mCbSelect.isChecked()) {//点击之前没选选中
                     mCbSelect.setChecked(true);
 
-                    mTempYuLanLists.add(mYuLanLists.get(position));
+                    mSencondShaiXuanYuLanLists.add(mYuLanLists.get(position));
                     delete_view.setBackgroundResource(R.drawable.translate_yu_lan);
 
 
                 } else {
                     mCbSelect.setChecked(false);
 
-                    mTempYuLanLists.remove(mYuLanLists.get(position));
+                    mSencondShaiXuanYuLanLists.remove(mYuLanLists.get(position));
                     delete_view.setBackgroundResource(R.drawable.delete_yu_lan);
                 }
 
-                if (mTempYuLanLists.size() != 0) {
+                if (mSencondShaiXuanYuLanLists.size() != 0) {
 
                     mBtFinish.setEnabled(true);
-                    mBtFinish.setText("完成(" + (mTempYuLanLists.size()) + "/" + CunZhi.mMaxSelectCount + ")");
+                    mBtFinish.setText("完成(" + (mSencondShaiXuanYuLanLists.size()) + "/" + CunZhi.mMaxSelectCount + ")");
                 } else {
 
                     mBtFinish.setEnabled(false);
@@ -274,11 +285,11 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
         mHorizontalScrollView = (HorizontalScrollView) findViewById(R.id.suo_lv_tu_scrollView);
         mSuoLvTuLinearLayout = (LinearLayout) findViewById(R.id.ll_suo_lv_tu);
 
-        mTvYuLanIndex.setText("1/" + mTempYuLanLists.size());
-        if (mTempYuLanLists.size() != 0) {
+        mTvYuLanIndex.setText("1/" + mSencondShaiXuanYuLanLists.size());
+        if (mSencondShaiXuanYuLanLists.size() != 0) {
 
             mBtFinish.setEnabled(true);
-            mBtFinish.setText("完成(" + (mTempYuLanLists.size()) + "/" + CunZhi.mMaxSelectCount + ")");
+            mBtFinish.setText("完成(" + (mSencondShaiXuanYuLanLists.size()) + "/" + CunZhi.mMaxSelectCount + ")");
         } else {
 
             mBtFinish.setEnabled(false);
@@ -290,7 +301,7 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
 
     private void finishAndSetResult() {
         Intent intent = new Intent();
-        intent.putStringArrayListExtra("mTempYuLanLists", mTempYuLanLists);
+        intent.putStringArrayListExtra("mSencondShaiXuanYuLanLists", mSencondShaiXuanYuLanLists);
         setResult(RESULT_CODE_SELECTED_PATH_LIST_YU_LAN, intent);
         finish();
     }
@@ -308,7 +319,7 @@ public class YuLanActivity extends AppCompatActivity implements View.OnClickList
                 sendBroadcast(intent);
 
                 CunZhi.mSelectPathList.clear();
-                CunZhi.mSelectPathList.addAll(mTempYuLanLists);
+                CunZhi.mSelectPathList.addAll(mSencondShaiXuanYuLanLists);
 
                 Intent intent1 = new Intent(YuLanActivity.this, FirstActivity.class);
 

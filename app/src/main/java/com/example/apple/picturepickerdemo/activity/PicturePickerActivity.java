@@ -54,7 +54,6 @@ public class PicturePickerActivity extends AppCompatActivity implements View.OnC
 
     List<FolderBean> mFolderBeanList = new ArrayList<>();
 
-//    private int mMaxSelectCount = 9;
     /**
      * 图片文件夹
      */
@@ -104,6 +103,7 @@ public class PicturePickerActivity extends AppCompatActivity implements View.OnC
     private Button mBtFinish;
     private TextView mTvYuLan;
     private static final int OPEN_YU_LAN_ACTIVITY = 0x005;
+    private static final int OPEN_YU_LAN_ALL_ACTIVITY = 0x006;
 
 
     private Handler mHandler = new Handler() {
@@ -217,14 +217,14 @@ public class PicturePickerActivity extends AppCompatActivity implements View.OnC
         mPicPickerRecyclerView.setAdapter(mPicturePickerAdapter);//为了避免弄no adpater，这里先设置一个空数据的adapter
         GridLayoutManager gridLayoutManager = new GridLayoutManager(PicturePickerActivity.this, 3);
         mPicPickerRecyclerView.setLayoutManager(gridLayoutManager);
-        final Intent yuLanIntent = new Intent(this, YuLanActivity.class);
+        final Intent yuLanALLIntent = new Intent(this, YuLanAllActivity.class);
 
         mPicturePickerAdapter.setOnPicturePickerItemClickLisnter(new PicturePickerAdapter.OnPicturePickerItemClickLisnter() {
             @Override
             public void onCheckboxClick(List<String> imgs, CheckBox checkbox, View blackTranslate, int position) {
-/**
- * 2. 接下来操作的都是mTempSelectPathList，此时mTempSelectPathList是有值的，值是上次点击完成后的正式List
- */
+                /**
+                * 2. 接下来操作的都是mTempSelectPathList，此时mTempSelectPathList是有值的，值是上次点击完成后的正式List
+                */
                 if (checkbox.isChecked()) {
                     if (mTempSelectPathList.size() == CunZhi.mMaxSelectCount) {
                         checkbox.setChecked(false);
@@ -252,11 +252,10 @@ public class PicturePickerActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onImageClick(ImageView picPickerImagerView, int position) {
 
-                yuLanIntent.putStringArrayListExtra("mImgs", (ArrayList<String>) mImgs);
-
-                yuLanIntent.putExtra("position", position);
-                yuLanIntent.putStringArrayListExtra("yuLanList", (ArrayList<String>) mTempSelectPathList);
-                startActivityForResult(yuLanIntent, OPEN_YU_LAN_ACTIVITY);
+                yuLanALLIntent.putStringArrayListExtra("mImgs", (ArrayList<String>) mImgs);
+                yuLanALLIntent.putExtra("position", position);
+                yuLanALLIntent.putStringArrayListExtra("yuLanList", (ArrayList<String>) mTempSelectPathList);
+                startActivityForResult(yuLanALLIntent, OPEN_YU_LAN_ALL_ACTIVITY);
             }
 
 
@@ -483,7 +482,7 @@ public class PicturePickerActivity extends AppCompatActivity implements View.OnC
         if (resultCode == YuLanActivity.RESULT_CODE_SELECTED_PATH_LIST_YU_LAN) {
             mTempSelectPathList.clear();
 
-            ArrayList<String> mTempYuLanLists = data.getStringArrayListExtra("mTempYuLanLists");
+            ArrayList<String> mTempYuLanLists = data.getStringArrayListExtra("mSencondShaiXuanYuLanLists");
             mTempSelectPathList.addAll(mTempYuLanLists);
             // TODO: 2017/8/28
             updateBtFinishAndYuLanText();

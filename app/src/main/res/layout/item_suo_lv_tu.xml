@@ -16,7 +16,7 @@
         android:id="@+id/delete_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/delete_yu_lan"
+        android:src="@drawable/translate_yu_lan"
         android:scaleType="centerCrop"/>
     <ImageView
         android:id="@+id/force_image"

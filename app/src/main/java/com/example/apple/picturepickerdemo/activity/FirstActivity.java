@@ -35,7 +35,13 @@ public class FirstActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(gridLayoutManager);
+
+//        以下的三步：是为了确保选择图片Activity加载大量图片，内存吃紧，会把现在的这个Activity内存回收，导致回到本Activity是重新走了onCreate方法
+//        导致没有收到照片，但是由于他们选择的图片已经存在了CunZhi.mSelectPathList里了，这里可以直接加载
+        mSelectImagPathList.clear();
+        mSelectImagPathList.addAll(CunZhi.mSelectPathList);
         mFirstAdapter = new FirstAdapter(this, mSelectImagPathList);
+
         mRecyclerView.setAdapter(mFirstAdapter);
         mFirstAdapter.setOnItemClickListener(new FirstAdapter.OnItemClickListener() {
             @Override
