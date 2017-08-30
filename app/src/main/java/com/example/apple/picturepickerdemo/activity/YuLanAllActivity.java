@@ -31,7 +31,7 @@ import com.example.apple.picturepickerdemo.view.HackyViewPager;
 import java.util.ArrayList;
 
 /**
- * 这个Activity是用来预览本文件夹下的所有的照片集合，下面现实的是已经选中的集合（存在一个微信也同样存在的bug，跨文件夹预览点击bug）
+ * 这个Activity是用来预览本文件夹下的所有的照片集合，下面的横向的scrollview显示的是已经选中的集合（存在一个微信也同样存在的bug，跨文件夹预览点击bug）
  */
 public class YuLanAllActivity extends AppCompatActivity implements View.OnClickListener {
 

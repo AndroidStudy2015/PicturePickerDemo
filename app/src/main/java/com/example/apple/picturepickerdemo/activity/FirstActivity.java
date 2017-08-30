@@ -29,7 +29,6 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-        Log.e("onResume", "onCreate");
 
         initData();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -105,6 +104,12 @@ public class FirstActivity extends AppCompatActivity {
         unregisterReceiver(mMyReceiver);
     }
 
+
+    /**
+     * 接收AllYuLan的数据，本应该AllYuLan和YuLan这两个写在一个Activity的两个Fragment里的，
+     * 这样一个onActivityResult接可以接受数据了，现在是写在了两个不同的Activity里，所以AllYuLanActivity
+     * 返回的数据，只能是通过打开FirstActivity和发送一个广播，来更新数据了
+     */
     public class MyReceiver extends BroadcastReceiver {
         public MyReceiver() {
         }
